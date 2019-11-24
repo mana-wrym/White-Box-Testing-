@@ -50,6 +50,8 @@ public class HelloWorld {
     	 * TODO: You need to complete this method to determine whether  a
     	 * triangle is formed or not when given the input edge a, b and c.
     	 */
+    	if(a<=0 || b<=0 || c<=0) return false;
+    	if(a+b<=c || a+c<=b || b+c<=a) return false;
     	return true;
     }
     public boolean isBirthday(int year, int month, int day) {
@@ -58,8 +60,29 @@ public class HelloWorld {
     	 * legitimate date of birth between 1990/01/01 and 2019/10/01 is 
     	 * formed or not when given the input year, month and day.
     	 */
-    	return true;
-    	
+    	if(year<1990 || year>2019) return false;
+    	if(month<1 || month>12 || (year==2019 && month>10)) return false;
+    	if(day<1) return false;
+    	boolean sb=false;
+    	switch(month)
+    	{
+    	case 1:
+    	case 3:
+    	case 5:
+    	case 7:
+    	case 8:
+    	case 10:
+    	case 12:
+    		sb= !(day>31); break;
+    	case 4:
+    	case 6:
+    	case 9:
+    	case 11:
+    		sb= !(day>30); break;
+    	case 2:
+    		sb= !( (year%4!=0 && day>28) || day>29); break;
+    	}
+    	return sb;
     }
     public Double miniCalculator(double a, double b, char op) {
     	/**
@@ -68,6 +91,16 @@ public class HelloWorld {
     	 * operation: "+","-","*","/". 
     	 */
     	double result = 0.0;
+    	switch(op)
+    	{
+    	case '+': result= a+b; break;
+    	case '-': result= a-b; break;
+    	case '*': result= a*b; break;
+    	case '/': 
+    		if(b==0) break;
+    		result= a/b;
+    	default:break;
+    	}
     	return result;
     }
     

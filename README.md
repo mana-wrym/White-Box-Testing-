@@ -28,3 +28,4 @@ junit、jacoco、maven
 ## 提交方式
 
 将github链接分享给助教，在README里截图最后的html报告
+![image-20191115210743488](https://github.com/mana-wrym/White-Box-Testing-/blob/master/IMG/result.JPG)
